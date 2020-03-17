@@ -4,7 +4,9 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 
 
-class Ball(var x: Float, var y: Float, var size: Float, var xSpeed: Int, var ySpeed: Int) {
+class Ball(private var x: Float, private var y: Float,
+           private var size: Float, private var xSpeed: Int,
+           private var ySpeed: Int) {
     fun update() {
         x += xSpeed
         y += ySpeed
