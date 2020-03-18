@@ -26,19 +26,22 @@ class Ball(private var x: Float, private var y: Float,
         }
     }
 
-    fun checkCollision(paddle: Paddle) {
-        if (collidesWith(paddle)) {
+    fun checkCollision(collObj: CollisionObject) {
+        if (collidesWith(collObj)) {
             xSpeed = -xSpeed
             ySpeed = -ySpeed
             color = Color.RED
+            if (collObj is Brick) {
+                collObj.destroyed = true
+            }
         } else {
             color = Color.WHITE
         }
     }
 
-    fun collidesWith(paddle: Paddle): Boolean {
-        val xCollision = paddle.x <= this.x + this.size && paddle.x + paddle.width >= this.x - this.size
-        val yCollision = paddle.y <= this.y + this.size && paddle.y + paddle.height >= this.y - this.size
+    fun collidesWith(collObj: CollisionObject): Boolean {
+        val xCollision = collObj.x <= this.x + this.size && collObj.x + collObj.width >= this.x - this.size
+        val yCollision = collObj.y <= this.y + this.size && collObj.y + collObj.height >= this.y - this.size
         return xCollision && yCollision
     }
 }
