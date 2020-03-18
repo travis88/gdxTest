@@ -9,7 +9,7 @@ class Paddle(override var x: Float, override var y: Float,
              private var color: Color = Color.WHITE) : CollisionObject(x, y, width, height) {
 
     fun draw(shape: ShapeRenderer) {
-        shape.setColor(this.color)
+        shape.color = this.color
         shape.rect(this.x, this.y, this.width, this.height)
     }
 
@@ -22,6 +22,5 @@ class Paddle(override var x: Float, override var y: Float,
             this.color = Color.WHITE
         }
         x = Gdx.input.x.toFloat() - width / 2
-//        this.y = Gdx.graphics.height - Gdx.input.getY().toFloat()
     }
 }

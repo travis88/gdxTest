@@ -10,13 +10,13 @@ import com.mygdx.game.entity.Paddle
 
 class MyGdxGame : ApplicationAdapter() {
     private lateinit var shape: ShapeRenderer
-    lateinit var ball: Ball
-    lateinit var paddle: Paddle
-    lateinit var bricks: ArrayList<Brick>
+    private lateinit var ball: Ball
+    private lateinit var paddle: Paddle
+    private lateinit var bricks: ArrayList<Brick>
 
     override fun create() {
         shape = ShapeRenderer()
-        ball = Ball(150f, 200f, 15f, 5, 5)
+        ball = Ball(150f, 200f, 10f, 5, 5)
         paddle = Paddle((Gdx.graphics.width / 2).toFloat(), 10f, 70f, 10f)
         bricks = ArrayList()
         val brickWidth = 63

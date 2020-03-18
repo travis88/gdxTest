@@ -11,7 +11,7 @@ class Ball(private var x: Float, private var y: Float,
            private var ySpeed: Int, private var color: Color = Color.WHITE) {
 
     fun draw(shape: ShapeRenderer) {
-        shape.setColor(this.color)
+        shape.color = this.color
         shape.circle(this.x, this.y, this.size)
     }
 
