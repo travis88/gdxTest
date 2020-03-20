@@ -14,12 +14,10 @@ class Paddle(override var x: Float, override var y: Float,
     }
 
     fun update() {
-        if (x <= 0) {
-            this.color = Color.BLUE
-        } else if (x + width >= Gdx.graphics.width) {
-            this.color = Color.GREEN
-        } else {
-            this.color = Color.WHITE
+        when {
+            x <= 0 -> this.color = Color.BLUE
+            x + width >= Gdx.graphics.width -> this.color = Color.GREEN
+            else -> this.color = Color.WHITE
         }
         x = Gdx.input.x.toFloat() - width / 2
     }

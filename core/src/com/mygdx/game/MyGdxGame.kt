@@ -16,8 +16,8 @@ class MyGdxGame : ApplicationAdapter() {
 
     override fun create() {
         shape = ShapeRenderer()
-        ball = Ball(150f, 200f, 10f, 5, 5)
-        paddle = Paddle((Gdx.graphics.width / 2).toFloat(), 10f, 70f, 10f)
+        ball = Ball(150f, 200f, 10f, 5f, 5f)
+        paddle = Paddle((Gdx.graphics.width / 2).toFloat(), 10f, 100f, 10f)
         bricks = ArrayList()
         val brickWidth = 63
         val brickHeight = 20
