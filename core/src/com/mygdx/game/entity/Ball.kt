@@ -3,13 +3,12 @@ package com.mygdx.game.entity
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
-import kotlin.math.abs
-
 
 class Ball(private var x: Float, private var y: Float,
            private var size: Float,
            private var xSpeed: Float,
-           private var ySpeed: Float, private var color: Color = Color.WHITE) {
+           private var ySpeed: Float,
+           private var color: Color = Color.WHITE) {
 
     fun draw(shape: ShapeRenderer) {
         shape.color = this.color
@@ -25,6 +24,11 @@ class Ball(private var x: Float, private var y: Float,
         if (y - size / 2 < 0 || y + size / 2 > Gdx.graphics.height) {
             ySpeed = -ySpeed
         }
+    }
+
+    fun checkOver(): Boolean {
+//        Gdx.app.log(TAG, this.y.toString())
+        return y - size / 2 < 0
     }
 
     fun checkCollision(collObj: CollisionObject) {
@@ -56,7 +60,7 @@ class Ball(private var x: Float, private var y: Float,
     }
 
     companion object{
-        const val TAG = "TAG"
+        const val TAG = "Ball"
         const val SPEED = 5f
     }
 }
